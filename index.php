@@ -1,10 +1,10 @@
 <?php
 if (isset($_FILES['fileUpload'])) {
     try {
-        $extension = strtolower(substr($_FILES['fileUpload']['name'], -4)); //Pegando extensão do arquivo
-        $name = date("d.m.Y-H.i.s") . $extension; //Definindo um novo nome para o arquivo
+        $extension = strtolower(substr($_FILES['fileUpload']['name'], -4)); //Pegando extensão
+        $name = date("d.m.Y-H.i.s") . $extension; //Renomeando o arquivo
         $dir = 'uploads/';
-        move_uploaded_file($_FILES['fileUpload']['tmp_name'], $dir . $name); //Fazer upload do arquivo
+        move_uploaded_file($_FILES['fileUpload']['tmp_name'], $dir . $name); //Fazer upload
     } catch (Exception $e) {
         echo $e;
     }
